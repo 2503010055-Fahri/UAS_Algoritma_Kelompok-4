@@ -9,13 +9,6 @@ struct Mapel
 Mapel daftarMapel[50];
 int jumlahMapel = 0;
 
-struct Jadwal
-{
-    string hari, jam, kelas, mapel;
-};
-
-Jadwal daftarJadwal[50];
-int jumlahJadwal = 0;
 
 // ===== MAPEL =====
 
