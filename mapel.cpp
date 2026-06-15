@@ -9,6 +9,13 @@ struct Mapel
 Mapel daftarMapel[50];
 int jumlahMapel = 0;
 
+struct Jadwal
+{
+    string hari, jam, kelas, mapel;
+};
+
+Jadwal daftarJadwal[50];
+int jumlahJadwal = 0;
 
 // ===== MAPEL =====
 
@@ -75,6 +82,84 @@ void menuMapel()
             break;
         case 3:
             hapusMapel();
+            break;
+        case 0:
+            break;
+        default:
+            cout << "Pilihan tidak valid\n";
+        }
+    } while (pilihan != 0);
+}
+
+// ===== JADWAL =====
+
+void tambahJadwal()
+{
+    cout << "Hari: ";
+    cin >> daftarJadwal[jumlahJadwal].hari;
+    cout << "Jam: ";
+    cin >> daftarJadwal[jumlahJadwal].jam;
+    cout << "Kelas: ";
+    cin >> daftarJadwal[jumlahJadwal].kelas;
+    cout << "Mapel: ";
+    cin >> daftarJadwal[jumlahJadwal].mapel;
+    jumlahJadwal++;
+    cout << "Data jadwal tersimpan!\n";
+}
+
+void tampilJadwal()
+{
+    if (jumlahJadwal == 0)
+    {
+        cout << "Belum ada data jadwal.\n";
+        return;
+    }
+    cout << "\nHari\tJam\tKelas\tMapel\n";
+    for (int i = 0; i < jumlahJadwal; i++)
+    {
+        cout << daftarJadwal[i].hari << "\t" << daftarJadwal[i].jam << "\t"
+             << daftarJadwal[i].kelas << "\t" << daftarJadwal[i].mapel << endl;
+    }
+}
+
+void hapusJadwal()
+{
+    string hariCari, jamCari;
+    cout << "Masukkan hari: ";
+    cin >> hariCari;
+    cout << "Masukkan jam: ";
+    cin >> jamCari;
+    for (int i = 0; i < jumlahJadwal; i++)
+    {
+        if (daftarJadwal[i].hari == hariCari && daftarJadwal[i].jam == jamCari)
+        {
+            for (int j = i; j < jumlahJadwal - 1; j++)
+                daftarJadwal[j] = daftarJadwal[j + 1];
+            jumlahJadwal--;
+            cout << "Data dihapus!\n";
+            return;
+        }
+    }
+    cout << "Data tidak ditemukan\n";
+}
+
+void menuJadwal()
+{
+    int pilihan;
+    do
+    {
+        cout << "\n-- Menu Jadwal Pelajaran --\n1. Tambah\n2. Tampil\n3. Hapus\n0. Kembali\nPilih: ";
+        cin >> pilihan;
+        switch (pilihan)
+        {
+        case 1:
+            tambahJadwal();
+            break;
+        case 2:
+            tampilJadwal();
+            break;
+        case 3:
+            hapusJadwal();
             break;
         case 0:
             break;
