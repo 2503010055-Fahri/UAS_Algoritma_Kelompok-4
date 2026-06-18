@@ -21,6 +21,7 @@ int main(){
         cout << "Pilih: ";
         cin >> pilih;
 
+        // Memanggil funsi dari file anggota untuk mengelola data siswa
         switch(pilih) {
             case 1: menuSiswa(); break;
             case 2: menuMapel(); break;
