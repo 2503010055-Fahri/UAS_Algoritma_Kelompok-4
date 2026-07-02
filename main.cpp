@@ -10,7 +10,7 @@ int main(){
     // Pembuatan pilihan menu utama dari sistem akademik sederhana
     int pilih;
     do {
-        cout << "\n===== SISTEM AKADEMIK SEDERHANA ====+\n";
+        cout << "\n===== SISTEM AKADEMIK SEDERHANA ====\n";
         cout << "1. Data Siswa\n";
         cout << "2. Data Mata Pelajaran\n";
         cout << "3. Jadwal Pelajaran\n";
